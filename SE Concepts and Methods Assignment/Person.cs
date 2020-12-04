@@ -33,12 +33,6 @@ namespace SE_Concepts_and_Methods_Assignment
         {
             acceptedMeetings.Add(accepted);
         }
-        //public void acceptInvite(MeetingNotification notif, string meetDate)
-        //{
-
-        //    Meeting meet = new Meeting(meetDate, notif.getInvitees(), notif.getRequire(), notif.getLocation());
-            
-        //}
         public void denyInvite(MeetingNotification id)
         {
             

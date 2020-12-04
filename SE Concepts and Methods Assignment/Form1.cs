@@ -14,17 +14,15 @@ namespace SE_Concepts_and_Methods_Assignment
 {
     public partial class Form1 : Form
     {
-        private int personID = 1;
-        private int inviteID = 0;
-        private int meetingID = 0;
+        
+        
         Dictionary<int, object> personDic = new Dictionary<int, object>();
         Dictionary<int, object> inviteDic = new Dictionary<int, object>();
         Dictionary<int, object> meetingDic = new Dictionary<int, object>();
-        Person login = new Person(0, "test", "test", 1);
-        Person Dave = new Person(1, "Dave", "test", 1);
-        Person John = new Person(2, "John", "test", 1);
-        Person Joe = new Person(3, "Joe", "test", 1);
-        Person Stew = new Person(4, "Stew", "test", 1);
+        
+        private int inviteID = 0;
+        private int meetingID = 0;
+
         public void showOptions()
         {
             btnSetPrefferences.Visible = true;
@@ -41,32 +39,63 @@ namespace SE_Concepts_and_Methods_Assignment
         public Form1()
         {
             InitializeComponent();
+
+
         }
         public void flushCSVData()
         {
-            System.IO.File.Delete(@".\\users.csv");
-            System.IO.File.Delete(@".\\meetings.csv");
-            System.IO.File.Delete(@".\\meetingInvites.csv");
-            string strFilePath = @".\\meetings.csv";
-            string strFilePath2 = @".\\meetingInvites.csv";
-            string strFilePath3 = @".\\users.csv";
+            System.IO.File.Delete(@".\\users.txt");
+            System.IO.File.Delete(@".\\meetings.txt");
+            System.IO.File.Delete(@".\\meetingInvites.txt");
+            string strFilePath = @".\\meetings.txt";
+            string strFilePath2 = @".\\meetingInvites.txt";
+            string strFilePath3 = @".\\users.txt";
             string strSeparator = "/";
             StringBuilder output = new StringBuilder();
 
             //
 
             //
-            
+
             File.WriteAllText(strFilePath, output.ToString());
             File.WriteAllText(strFilePath2, output.ToString());
             File.WriteAllText(strFilePath3, output.ToString());
         }
 
-        public void writeMeetingCSV()
+        public void readInstanciateInvites()
         {
-            string strFilePath = @".\\meeting.csv";
+            string line;
+            int counter;
+            inviteDic.Clear();
+            System.IO.StreamReader file = new System.IO.StreamReader(@".\\meetingInvites.txt");
+            while ((line = file.ReadLine()) != null)
+            {
+                string[] entries = line.Split('/');
+                Person Alpha = new Person(int.Parse(entries[0]), entries[1], entries[2], 0);
+                personDic.Add(int.Parse(entries[0]), Alpha);
+
+            }
+        }
+
+        public void readInstanciateUser()
+        {
+            string line;
+            int counter;
+            personDic.Clear();
+            System.IO.StreamReader file = new System.IO.StreamReader(@".\\users.txt");
+            while((line = file.ReadLine()) != null)
+            {
+                string[] entries = line.Split('/');
+                Person Alpha = new Person(int.Parse(entries[0]), entries[1], entries[2], 0);
+                personDic.Add(int.Parse(entries[0]), Alpha);
+
+            }
+        }
+
+        public void writeMeetingData()
+        {
+            string strFilePath = @".\\meeting.txt";
             string strSeperator = "/";
-            StringBuilder sbOutput = new StringBuilder();
 
 
             foreach (Meeting meet in meetingDic.Values)
@@ -80,28 +109,45 @@ namespace SE_Concepts_and_Methods_Assignment
 
 
 
-                string inaOutput = (meet.getDate(), attendees , meet.getRequirements(), meet.getLocation(), meet.getTopic() + "/").ToString();
+                string output = (meet.getDate() + "/" + attendees + "/" + meet.getRequirements() + "/" + meet.getLocation() + "/" + meet.getTopic() + "/").ToString();
 
-                int ilength = inaOutput.Length;
-
-                //for (int i = 0; i &amp; lt; inaOutput.Length; i++)
-                //{
-                //    sbOutput.AppendLine(string.Join(strSeperator, inaOutput[i]));
-                //}
-                
-
-
-                File.AppendAllText(strFilePath, sbOutput.ToString());
+                using (StreamWriter outputFile = File.AppendText(strFilePath))
+                {
+                    outputFile.WriteLine(output);
+                }
             }
             
         }
 
+        public void writeInviteData()
+        {
+            string strFilePath = @".\\meetingInvites.txt";
+            string strSeparator = "/";
+
+            foreach (MeetingNotification notif in inviteDic.Values)
+            {
+                string times = "";
+                string invitees = "";
+                foreach (DateTime time in notif.getTimes())
+                {
+                    times += time.ToString("MM-dd-yyy") + ",";
+                }
+                foreach (string person in notif.getInvitees())
+                {
+                    invitees += person + ",";
+                }
+                string output = (notif.getID() + "/" + notif.getTopic() + "/" + times + "/" + invitees + "/" + notif.getLocation() + "/" + notif.getRequire() + "/");
+                using (StreamWriter outputFile = File.AppendText(strFilePath))
+                {
+                    outputFile.WriteLine(output);
+                }
+            }
+        }
+
         public void writeUserData()
         {
-            string strFilePath = @".\\users.csv";
+            string strFilePath = @".\\users.txt";
             string strSeperator = "/";
-            StringBuilder userOutput = new StringBuilder();
-            //string Output = ("test"+ "build").ToString();
 
             
             foreach (Person person in personDic.Values)
@@ -116,9 +162,9 @@ namespace SE_Concepts_and_Methods_Assignment
                 {
                     acceptedList += meet.getID() + ", ";
                 }
-                string Output = (person.getID() + person.getUser() + person.getPass());
+                string Output = (person.getID()+ "/" + person.getUser()+ "/" + person.getPass() + "/" + inviteList + "/" + acceptedList); 
 
-                using (StreamWriter outputFile = new StreamWriter(strFilePath))
+                using (StreamWriter outputFile = File.AppendText(strFilePath))
                 {
                     outputFile.WriteLine(Output);
                 }
@@ -129,11 +175,11 @@ namespace SE_Concepts_and_Methods_Assignment
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            personDic.Add(login.getID(), login);
-            personDic.Add(Dave.getID(), Dave);
-            personDic.Add(John.getID(), John);
-            personDic.Add(Joe.getID(), Joe);
-            personDic.Add(Stew.getID(), Stew);
+            readInstanciateUser();
+            //personDic.Add(Dave.getID(), Dave);
+            //personDic.Add(John.getID(), John);
+            //personDic.Add(Joe.getID(), Joe);
+            //personDic.Add(Stew.getID(), Stew);
         }
 
 
@@ -169,6 +215,7 @@ namespace SE_Concepts_and_Methods_Assignment
             string name = txtCreateUser.Text;
             string pass = txtCreatePass.Text;
             int LOA = int.Parse(txtCreateAccess.Text);
+            int personID = personDic.Count +1;
             Person Alpha = new Person(personID, name, pass, LOA);
             if (Alpha != null)
             {
@@ -180,7 +227,7 @@ namespace SE_Concepts_and_Methods_Assignment
             personDic.Add(personID, Alpha);
 
 
-            personID++;
+            
         }
 
         
@@ -229,8 +276,8 @@ namespace SE_Concepts_and_Methods_Assignment
                 invitees.Add(person);
             }
             string location = txtBxEnterBuilding.Text + txtBxEnterRoom.Text;
-            string require = lblRequirements.Text;
-            MeetingNotification invite = new MeetingNotification(Tpic, suggestedTimes, invitees, location, require);
+            string require = txtBxEnterRequire.Text;
+            MeetingNotification invite = new MeetingNotification(inviteID, Tpic, suggestedTimes, invitees, location, require);
             inviteDic.Add(inviteID, invite);
             inviteID++;
             foreach (string invitee in invitees)
@@ -313,7 +360,7 @@ namespace SE_Concepts_and_Methods_Assignment
                     {
                         if (notifi.getTopic() == inviteSelector.SelectedItem.ToString())
                         {
-                            Meeting meet = new Meeting(meetingID, showDates.SelectedItem.ToString(), notifi.getInvitees(), notifi.getRequire(), notifi.getLocation());
+                            Meeting meet = new Meeting(meetingID, notifi.getTopic(), showDates.SelectedItem.ToString(), notifi.getInvitees(), notifi.getRequire(), notifi.getLocation());
                             meetingDic.Add(meetingID, meet);
                             meetingID++;
                             person.addInviteToList(meet);
@@ -437,11 +484,19 @@ namespace SE_Concepts_and_Methods_Assignment
         private void button3_Click(object sender, EventArgs e)
         {
             writeUserData();
+            writeInviteData();
+            writeMeetingData();
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             flushCSVData();
+        }
+
+        private void showAccepted_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

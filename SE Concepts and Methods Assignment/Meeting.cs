@@ -19,7 +19,7 @@ namespace SE_Concepts_and_Methods_Assignment
         private string loc;
 
         // Constructor 
-        public Meeting(int ID, string meetTime, List<string> attendents, string requirements, string location)
+        public Meeting(int ID, string topic, string meetTime, List<string> attendents, string requirements, string location)
         {
             this.id = ID;
             this.meetingDate = meetTime;

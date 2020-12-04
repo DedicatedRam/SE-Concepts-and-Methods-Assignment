@@ -240,7 +240,7 @@
             // btnSetPrefferences
             // 
             this.btnSetPrefferences.Location = new System.Drawing.Point(2568, 133);
-            this.btnSetPrefferences.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSetPrefferences.Margin = new System.Windows.Forms.Padding(6);
             this.btnSetPrefferences.Name = "btnSetPrefferences";
             this.btnSetPrefferences.Size = new System.Drawing.Size(396, 102);
             this.btnSetPrefferences.TabIndex = 4;
@@ -252,7 +252,7 @@
             // btnDateSubmission
             // 
             this.btnDateSubmission.Location = new System.Drawing.Point(2568, 253);
-            this.btnDateSubmission.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnDateSubmission.Margin = new System.Windows.Forms.Padding(6);
             this.btnDateSubmission.Name = "btnDateSubmission";
             this.btnDateSubmission.Size = new System.Drawing.Size(307, 111);
             this.btnDateSubmission.TabIndex = 10;
@@ -264,7 +264,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(38, 65);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(6);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(419, 44);
             this.dateTimePicker1.TabIndex = 11;
@@ -273,7 +273,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Location = new System.Drawing.Point(38, 139);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(6);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(419, 44);
             this.dateTimePicker2.TabIndex = 12;
@@ -282,7 +282,7 @@
             // dateTimePicker3
             // 
             this.dateTimePicker3.Location = new System.Drawing.Point(38, 219);
-            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(6);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(419, 44);
             this.dateTimePicker3.TabIndex = 13;
@@ -291,7 +291,7 @@
             // dateTimePicker4
             // 
             this.dateTimePicker4.Location = new System.Drawing.Point(38, 293);
-            this.dateTimePicker4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dateTimePicker4.Margin = new System.Windows.Forms.Padding(6);
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.Size = new System.Drawing.Size(419, 44);
             this.dateTimePicker4.TabIndex = 14;
@@ -492,6 +492,7 @@
             this.showAccepted.Size = new System.Drawing.Size(637, 45);
             this.showAccepted.TabIndex = 33;
             this.showAccepted.Visible = false;
+            this.showAccepted.SelectedIndexChanged += new System.EventHandler(this.showAccepted_SelectedIndexChanged);
             // 
             // showAttendees
             // 
@@ -553,12 +554,12 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1810, 987);
+            this.button3.Location = new System.Drawing.Point(1719, 987);
             this.button3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(187, 55);
+            this.button3.Size = new System.Drawing.Size(278, 55);
             this.button3.TabIndex = 38;
-            this.button3.Text = "button3";
+            this.button3.Text = "Save data to file";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 

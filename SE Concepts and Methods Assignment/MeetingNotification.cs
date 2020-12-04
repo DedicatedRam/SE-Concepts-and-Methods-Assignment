@@ -16,8 +16,9 @@ namespace SE_Concepts_and_Methods_Assignment
         private string location;
         private string requirements;
 
-        public MeetingNotification(string Topic, List<DateTime> Times, List<string>attendees, string loc, string requirement)
+        public MeetingNotification(int ID, string Topic, List<DateTime> Times, List<string>attendees, string loc, string requirement)
         {
+            this.id = ID;
             this.topic = Topic;
             this.suggestedTimes = Times;
             this.invitees = attendees;
