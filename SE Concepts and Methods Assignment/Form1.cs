@@ -20,8 +20,8 @@ namespace SE_Concepts_and_Methods_Assignment
         Dictionary<int, object> inviteDic = new Dictionary<int, object>();
         Dictionary<int, object> meetingDic = new Dictionary<int, object>();
         
-        private int inviteID = 0;
-        private int meetingID = 0;
+       //private int inviteID = 0;
+        //private int meetingID = 0;
 
         public void showOptions()
         {
@@ -45,42 +45,88 @@ namespace SE_Concepts_and_Methods_Assignment
         public void flushCSVData()
         {
             System.IO.File.Delete(@".\\users.txt");
-            System.IO.File.Delete(@".\\meetings.txt");
+            System.IO.File.Delete(@".\\meeting.txt");
             System.IO.File.Delete(@".\\meetingInvites.txt");
-            string strFilePath = @".\\meetings.txt";
+            string strFilePath = @".\\meeting.txt";
             string strFilePath2 = @".\\meetingInvites.txt";
             string strFilePath3 = @".\\users.txt";
-            string strSeparator = "/";
             StringBuilder output = new StringBuilder();
-
-            //
-
-            //
 
             File.WriteAllText(strFilePath, output.ToString());
             File.WriteAllText(strFilePath2, output.ToString());
             File.WriteAllText(strFilePath3, output.ToString());
         }
 
+        public void readInstanciateMeeting()
+        {
+            string line;
+            meetingDic.Clear();
+            System.IO.StreamReader file = new System.IO.StreamReader(@".\\meeting.txt");
+            while ((line = file.ReadLine()) != null)
+            {
+                string[] entry = line.Split('-');
+                List<string> attendees = new List<string>();
+                string[] invitees = entry[2].Split(',');
+                foreach (string person in invitees)
+                {
+                    attendees.Add(person);
+                }
+                Meeting Alpha = new Meeting(int.Parse(entry[0]), entry[5], entry[1], attendees, entry[3], entry[4]);
+                meetingDic.Add(int.Parse(entry[0]), Alpha);
+                foreach  (Person person in personDic.Values)
+                {
+                    foreach (string userName in attendees)
+                    {
+                        if (person.getUser() == userName)
+                        {
+                            person.addInviteToList(Alpha);
+                        }
+                    }
+                }
+            }
+        }
+
         public void readInstanciateInvites()
         {
             string line;
-            int counter;
             inviteDic.Clear();
             System.IO.StreamReader file = new System.IO.StreamReader(@".\\meetingInvites.txt");
             while ((line = file.ReadLine()) != null)
             {
                 string[] entries = line.Split('/');
-                Person Alpha = new Person(int.Parse(entries[0]), entries[1], entries[2], 0);
-                personDic.Add(int.Parse(entries[0]), Alpha);
+                string[] dates = entries[2].Split('-');
+                List<DateTime> Dates = new List<DateTime>();
+                List<string> Attendees = new List<string>();
+                string[] attendees = entries[3].Split(',');
+                foreach (string date in dates)
+                {
+                    DateTime d;
+                    DateTime.TryParseExact(date, "MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out d);
+                    Dates.Add(d);
+                }
+                foreach (string invitee in attendees)
+                {
+                    Attendees.Add(invitee);
+                }
+                MeetingNotification Alpha = new MeetingNotification(int.Parse(entries[0]), entries[1], Dates, Attendees, entries[4], entries[5]);
+                inviteDic.Add(int.Parse(entries[0]), Alpha);
+                foreach (Person person in personDic.Values)
+                {
+                    foreach (string userName in Attendees)
+                    {
+                        if (person.getUser() == userName)
+                        {
+                            person.recieveInvite(Alpha);
+                        }
+                    }
 
+                }
             }
         }
 
         public void readInstanciateUser()
         {
             string line;
-            int counter;
             personDic.Clear();
             System.IO.StreamReader file = new System.IO.StreamReader(@".\\users.txt");
             while((line = file.ReadLine()) != null)
@@ -109,7 +155,7 @@ namespace SE_Concepts_and_Methods_Assignment
 
 
 
-                string output = (meet.getDate() + "/" + attendees + "/" + meet.getRequirements() + "/" + meet.getLocation() + "/" + meet.getTopic() + "/").ToString();
+                string output = (meet.getID() + "-" + meet.getDate() + "-" + attendees + "-" + meet.getRequirements() + "-" + meet.getLocation() + "-" + meet.getTopic() + "-").ToString();
 
                 using (StreamWriter outputFile = File.AppendText(strFilePath))
                 {
@@ -130,7 +176,7 @@ namespace SE_Concepts_and_Methods_Assignment
                 string invitees = "";
                 foreach (DateTime time in notif.getTimes())
                 {
-                    times += time.ToString("MM-dd-yyy") + ",";
+                    times += time.ToString("MM-dd-yyyy")+ ",";
                 }
                 foreach (string person in notif.getInvitees())
                 {
@@ -176,10 +222,8 @@ namespace SE_Concepts_and_Methods_Assignment
         private void Form1_Load(object sender, EventArgs e)
         {
             readInstanciateUser();
-            //personDic.Add(Dave.getID(), Dave);
-            //personDic.Add(John.getID(), John);
-            //personDic.Add(Joe.getID(), Joe);
-            //personDic.Add(Stew.getID(), Stew);
+            readInstanciateInvites();
+            readInstanciateMeeting();
         }
 
 
@@ -277,6 +321,7 @@ namespace SE_Concepts_and_Methods_Assignment
             }
             string location = txtBxEnterBuilding.Text + txtBxEnterRoom.Text;
             string require = txtBxEnterRequire.Text;
+            int inviteID = inviteDic.Count + 1;
             MeetingNotification invite = new MeetingNotification(inviteID, Tpic, suggestedTimes, invitees, location, require);
             inviteDic.Add(inviteID, invite);
             inviteID++;
@@ -311,8 +356,11 @@ namespace SE_Concepts_and_Methods_Assignment
 
         private void btnShowInvites_Click(object sender, EventArgs e)
         {
+            
             inviteSelector.Visible = true;
+            inviteSelector.Items.Clear();
             showDates.Visible = true;
+            showDates.Items.Clear();
             acceptInvite.Visible = true;
             DenyInvite.Visible = true;
             grpBoxInvites.Visible = true;
@@ -344,7 +392,7 @@ namespace SE_Concepts_and_Methods_Assignment
                     showDates.Items.Clear();
                     foreach (DateTime dates in notif.getTimes())
                     {
-                        showDates.Items.Add(dates.ToString("MM/dd/yyyy"));
+                        showDates.Items.Add(dates.ToString("MM-dd-yyyy"));
                     }
                 }
             }
@@ -360,10 +408,14 @@ namespace SE_Concepts_and_Methods_Assignment
                     {
                         if (notifi.getTopic() == inviteSelector.SelectedItem.ToString())
                         {
+                            int meetingID = meetingDic.Count + 1;
                             Meeting meet = new Meeting(meetingID, notifi.getTopic(), showDates.SelectedItem.ToString(), notifi.getInvitees(), notifi.getRequire(), notifi.getLocation());
                             meetingDic.Add(meetingID, meet);
+                            inviteDic.Remove(notifi.getID());
                             meetingID++;
                             person.addInviteToList(meet);
+                            inviteSelector.Items.Clear();
+                            showDates.Items.Clear();
                             showDates.Visible = false;
                             inviteSelector.Visible = false;
                             acceptInvite.Visible = false;
@@ -386,9 +438,10 @@ namespace SE_Concepts_and_Methods_Assignment
                     {
                         if (person.getInvitesList()[i].getTopic() == inviteSelector.SelectedItem.ToString())
                         {
-                            inviteSelector.Items.RemoveAt(i);
+                            inviteSelector.Items.Clear();
                             showDates.Items.Clear();
                             person.denyInvite(person.getInvitesList()[i]);
+                            
                             grpBoxInvites.Visible = false;
                             DenyInvite.Visible = false;
                             acceptInvite.Visible = false;
@@ -403,7 +456,9 @@ namespace SE_Concepts_and_Methods_Assignment
         private void showMeetings_Click(object sender, EventArgs e)
         {
             showAccepted.Visible = true;
+            showAccepted.Items.Clear();
             showAttendees.Visible = true;
+            showAttendees.Items.Clear();
             foreach (Person person in personDic.Values)
             {
 
@@ -472,6 +527,8 @@ namespace SE_Concepts_and_Methods_Assignment
         private void btnLogout_Click(object sender, EventArgs e)
         {
             goToLogin();
+            UserNameInput.Text = "";
+            PasswordInput.Text = "";
             foreach (Person person in personDic.Values)
             {
                 if (person.getStatus() == true)
@@ -483,18 +540,35 @@ namespace SE_Concepts_and_Methods_Assignment
 
         private void button3_Click(object sender, EventArgs e)
         {
+            flushCSVData();
             writeUserData();
             writeInviteData();
-            writeMeetingData();
-            
+            writeMeetingData();  
+        }
+
+
+        private void showAccepted_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            flushCSVData();
+            foreach (MeetingNotification notif in inviteDic.Values)
+            {
+                if (notif.getID() == 1)
+                {
+                    foreach (DateTime dates in notif.getTimes())
+                    {
+                        comboBox1.Items.Add(dates.ToString("MM-dd-yyyy"));
+                    }
+                }
+                
+            }
+
         }
 
-        private void showAccepted_SelectedIndexChanged(object sender, EventArgs e)
+        private void showInvites_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

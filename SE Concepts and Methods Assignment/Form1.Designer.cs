@@ -72,7 +72,9 @@
             this.grpBoxInvites = new System.Windows.Forms.GroupBox();
             this.grpBoxMeetingDetails = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.showInvites = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.grpBxLogin.SuspendLayout();
             this.accoutCreate.SuspendLayout();
             this.grpBoxDates.SuspendLayout();
@@ -83,20 +85,20 @@
             // Welcome
             // 
             this.Welcome.AutoSize = true;
-            this.Welcome.Location = new System.Drawing.Point(776, 92);
-            this.Welcome.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.Welcome.Location = new System.Drawing.Point(490, 62);
+            this.Welcome.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Welcome.Name = "Welcome";
-            this.Welcome.Size = new System.Drawing.Size(527, 37);
+            this.Welcome.Size = new System.Drawing.Size(355, 25);
             this.Welcome.TabIndex = 0;
             this.Welcome.Text = "Welcome to the meeting schedualar";
             this.Welcome.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(22, 207);
-            this.button1.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.button1.Location = new System.Drawing.Point(14, 140);
+            this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(415, 65);
+            this.button1.Size = new System.Drawing.Size(262, 44);
             this.button1.TabIndex = 1;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = true;
@@ -109,11 +111,11 @@
             this.grpBxLogin.Controls.Add(this.PasswordInput);
             this.grpBxLogin.Controls.Add(this.button1);
             this.grpBxLogin.Controls.Add(this.UserNameInput);
-            this.grpBxLogin.Location = new System.Drawing.Point(38, 324);
-            this.grpBxLogin.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.grpBxLogin.Location = new System.Drawing.Point(24, 219);
+            this.grpBxLogin.Margin = new System.Windows.Forms.Padding(6);
             this.grpBxLogin.Name = "grpBxLogin";
-            this.grpBxLogin.Padding = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.grpBxLogin.Size = new System.Drawing.Size(469, 284);
+            this.grpBxLogin.Padding = new System.Windows.Forms.Padding(6);
+            this.grpBxLogin.Size = new System.Drawing.Size(296, 192);
             this.grpBxLogin.TabIndex = 2;
             this.grpBxLogin.TabStop = false;
             this.grpBxLogin.Text = "Login";
@@ -121,37 +123,37 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(272, 139);
-            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label5.Location = new System.Drawing.Point(172, 94);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(158, 37);
+            this.label5.Size = new System.Drawing.Size(106, 25);
             this.label5.TabIndex = 5;
             this.label5.Text = "Password";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(272, 62);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label4.Location = new System.Drawing.Point(172, 42);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(164, 37);
+            this.label4.Size = new System.Drawing.Size(110, 25);
             this.label4.TabIndex = 4;
             this.label4.Text = "Username";
             // 
             // PasswordInput
             // 
-            this.PasswordInput.Location = new System.Drawing.Point(22, 133);
-            this.PasswordInput.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.PasswordInput.Location = new System.Drawing.Point(14, 90);
+            this.PasswordInput.Margin = new System.Windows.Forms.Padding(6);
             this.PasswordInput.Name = "PasswordInput";
-            this.PasswordInput.Size = new System.Drawing.Size(232, 44);
+            this.PasswordInput.Size = new System.Drawing.Size(148, 31);
             this.PasswordInput.TabIndex = 1;
             // 
             // UserNameInput
             // 
-            this.UserNameInput.Location = new System.Drawing.Point(22, 56);
-            this.UserNameInput.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.UserNameInput.Location = new System.Drawing.Point(14, 38);
+            this.UserNameInput.Margin = new System.Windows.Forms.Padding(6);
             this.UserNameInput.Name = "UserNameInput";
-            this.UserNameInput.Size = new System.Drawing.Size(232, 44);
+            this.UserNameInput.Size = new System.Drawing.Size(148, 31);
             this.UserNameInput.TabIndex = 0;
             // 
             // accoutCreate
@@ -163,21 +165,21 @@
             this.accoutCreate.Controls.Add(this.txtCreateAccess);
             this.accoutCreate.Controls.Add(this.txtCreatePass);
             this.accoutCreate.Controls.Add(this.txtCreateUser);
-            this.accoutCreate.Location = new System.Drawing.Point(38, 626);
-            this.accoutCreate.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.accoutCreate.Location = new System.Drawing.Point(24, 423);
+            this.accoutCreate.Margin = new System.Windows.Forms.Padding(6);
             this.accoutCreate.Name = "accoutCreate";
-            this.accoutCreate.Padding = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.accoutCreate.Size = new System.Drawing.Size(633, 376);
+            this.accoutCreate.Padding = new System.Windows.Forms.Padding(6);
+            this.accoutCreate.Size = new System.Drawing.Size(400, 254);
             this.accoutCreate.TabIndex = 3;
             this.accoutCreate.TabStop = false;
             this.accoutCreate.Text = "Create Account";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(22, 277);
-            this.button2.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.button2.Location = new System.Drawing.Point(14, 187);
+            this.button2.Margin = new System.Windows.Forms.Padding(6);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(583, 65);
+            this.button2.Size = new System.Drawing.Size(368, 44);
             this.button2.TabIndex = 2;
             this.button2.Text = "Create Account";
             this.button2.UseVisualStyleBackColor = true;
@@ -186,63 +188,63 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(358, 210);
-            this.label3.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.label3.Location = new System.Drawing.Point(226, 142);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(203, 37);
+            this.label3.Size = new System.Drawing.Size(140, 25);
             this.label3.TabIndex = 6;
             this.label3.Text = "Access Level";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(358, 136);
-            this.label2.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.label2.Location = new System.Drawing.Point(226, 92);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(158, 37);
+            this.label2.Size = new System.Drawing.Size(106, 25);
             this.label2.TabIndex = 5;
             this.label2.Text = "Password";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(358, 65);
-            this.label1.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.label1.Location = new System.Drawing.Point(226, 44);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 37);
+            this.label1.Size = new System.Drawing.Size(110, 25);
             this.label1.TabIndex = 4;
             this.label1.Text = "Username";
             // 
             // txtCreateAccess
             // 
-            this.txtCreateAccess.Location = new System.Drawing.Point(22, 203);
-            this.txtCreateAccess.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.txtCreateAccess.Location = new System.Drawing.Point(14, 137);
+            this.txtCreateAccess.Margin = new System.Windows.Forms.Padding(6);
             this.txtCreateAccess.Name = "txtCreateAccess";
-            this.txtCreateAccess.Size = new System.Drawing.Size(308, 44);
+            this.txtCreateAccess.Size = new System.Drawing.Size(196, 31);
             this.txtCreateAccess.TabIndex = 2;
             // 
             // txtCreatePass
             // 
-            this.txtCreatePass.Location = new System.Drawing.Point(22, 129);
-            this.txtCreatePass.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.txtCreatePass.Location = new System.Drawing.Point(14, 87);
+            this.txtCreatePass.Margin = new System.Windows.Forms.Padding(6);
             this.txtCreatePass.Name = "txtCreatePass";
-            this.txtCreatePass.Size = new System.Drawing.Size(308, 44);
+            this.txtCreatePass.Size = new System.Drawing.Size(196, 31);
             this.txtCreatePass.TabIndex = 1;
             // 
             // txtCreateUser
             // 
-            this.txtCreateUser.Location = new System.Drawing.Point(22, 55);
-            this.txtCreateUser.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.txtCreateUser.Location = new System.Drawing.Point(14, 37);
+            this.txtCreateUser.Margin = new System.Windows.Forms.Padding(6);
             this.txtCreateUser.Name = "txtCreateUser";
-            this.txtCreateUser.Size = new System.Drawing.Size(308, 44);
+            this.txtCreateUser.Size = new System.Drawing.Size(196, 31);
             this.txtCreateUser.TabIndex = 0;
             // 
             // btnSetPrefferences
             // 
-            this.btnSetPrefferences.Location = new System.Drawing.Point(2568, 133);
-            this.btnSetPrefferences.Margin = new System.Windows.Forms.Padding(6);
+            this.btnSetPrefferences.Location = new System.Drawing.Point(1622, 90);
+            this.btnSetPrefferences.Margin = new System.Windows.Forms.Padding(4);
             this.btnSetPrefferences.Name = "btnSetPrefferences";
-            this.btnSetPrefferences.Size = new System.Drawing.Size(396, 102);
+            this.btnSetPrefferences.Size = new System.Drawing.Size(250, 69);
             this.btnSetPrefferences.TabIndex = 4;
             this.btnSetPrefferences.Text = "Click here to select your available dates";
             this.btnSetPrefferences.UseVisualStyleBackColor = true;
@@ -251,10 +253,10 @@
             // 
             // btnDateSubmission
             // 
-            this.btnDateSubmission.Location = new System.Drawing.Point(2568, 253);
-            this.btnDateSubmission.Margin = new System.Windows.Forms.Padding(6);
+            this.btnDateSubmission.Location = new System.Drawing.Point(1622, 171);
+            this.btnDateSubmission.Margin = new System.Windows.Forms.Padding(4);
             this.btnDateSubmission.Name = "btnDateSubmission";
-            this.btnDateSubmission.Size = new System.Drawing.Size(307, 111);
+            this.btnDateSubmission.Size = new System.Drawing.Size(194, 75);
             this.btnDateSubmission.TabIndex = 10;
             this.btnDateSubmission.Text = "Click this to submit dates";
             this.btnDateSubmission.UseVisualStyleBackColor = true;
@@ -263,76 +265,76 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(38, 65);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(6);
+            this.dateTimePicker1.Location = new System.Drawing.Point(24, 44);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(419, 44);
+            this.dateTimePicker1.Size = new System.Drawing.Size(266, 31);
             this.dateTimePicker1.TabIndex = 11;
             this.dateTimePicker1.Visible = false;
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(38, 139);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(6);
+            this.dateTimePicker2.Location = new System.Drawing.Point(24, 94);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(419, 44);
+            this.dateTimePicker2.Size = new System.Drawing.Size(266, 31);
             this.dateTimePicker2.TabIndex = 12;
             this.dateTimePicker2.Visible = false;
             // 
             // dateTimePicker3
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(38, 219);
-            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(6);
+            this.dateTimePicker3.Location = new System.Drawing.Point(24, 148);
+            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(419, 44);
+            this.dateTimePicker3.Size = new System.Drawing.Size(266, 31);
             this.dateTimePicker3.TabIndex = 13;
             this.dateTimePicker3.Visible = false;
             // 
             // dateTimePicker4
             // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(38, 293);
-            this.dateTimePicker4.Margin = new System.Windows.Forms.Padding(6);
+            this.dateTimePicker4.Location = new System.Drawing.Point(24, 198);
+            this.dateTimePicker4.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(419, 44);
+            this.dateTimePicker4.Size = new System.Drawing.Size(266, 31);
             this.dateTimePicker4.TabIndex = 14;
             this.dateTimePicker4.Visible = false;
             // 
             // chckBoxShowPeople
             // 
             this.chckBoxShowPeople.FormattingEnabled = true;
-            this.chckBoxShowPeople.Location = new System.Drawing.Point(111, 1193);
-            this.chckBoxShowPeople.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.chckBoxShowPeople.Location = new System.Drawing.Point(70, 806);
+            this.chckBoxShowPeople.Margin = new System.Windows.Forms.Padding(6);
             this.chckBoxShowPeople.Name = "chckBoxShowPeople";
-            this.chckBoxShowPeople.Size = new System.Drawing.Size(577, 168);
+            this.chckBoxShowPeople.Size = new System.Drawing.Size(366, 228);
             this.chckBoxShowPeople.TabIndex = 16;
             this.chckBoxShowPeople.Visible = false;
             // 
             // txtBxEnterRoom
             // 
-            this.txtBxEnterRoom.Location = new System.Drawing.Point(255, 123);
-            this.txtBxEnterRoom.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.txtBxEnterRoom.Location = new System.Drawing.Point(161, 83);
+            this.txtBxEnterRoom.Margin = new System.Windows.Forms.Padding(6);
             this.txtBxEnterRoom.Name = "txtBxEnterRoom";
-            this.txtBxEnterRoom.Size = new System.Drawing.Size(352, 44);
+            this.txtBxEnterRoom.Size = new System.Drawing.Size(224, 31);
             this.txtBxEnterRoom.TabIndex = 17;
             this.txtBxEnterRoom.Visible = false;
             // 
             // lblEnterLocation
             // 
             this.lblEnterLocation.AutoSize = true;
-            this.lblEnterLocation.Location = new System.Drawing.Point(87, 71);
-            this.lblEnterLocation.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.lblEnterLocation.Location = new System.Drawing.Point(55, 48);
+            this.lblEnterLocation.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblEnterLocation.Name = "lblEnterLocation";
-            this.lblEnterLocation.Size = new System.Drawing.Size(260, 37);
+            this.lblEnterLocation.Size = new System.Drawing.Size(177, 25);
             this.lblEnterLocation.TabIndex = 18;
             this.lblEnterLocation.Text = "Meeting Location";
             this.lblEnterLocation.Visible = false;
             // 
             // txtBxEnterBuilding
             // 
-            this.txtBxEnterBuilding.Location = new System.Drawing.Point(255, 188);
-            this.txtBxEnterBuilding.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.txtBxEnterBuilding.Location = new System.Drawing.Point(161, 127);
+            this.txtBxEnterBuilding.Margin = new System.Windows.Forms.Padding(6);
             this.txtBxEnterBuilding.Name = "txtBxEnterBuilding";
-            this.txtBxEnterBuilding.Size = new System.Drawing.Size(352, 44);
+            this.txtBxEnterBuilding.Size = new System.Drawing.Size(224, 31);
             this.txtBxEnterBuilding.TabIndex = 19;
             this.txtBxEnterBuilding.Visible = false;
             // 
@@ -342,11 +344,11 @@
             this.grpBoxDates.Controls.Add(this.dateTimePicker2);
             this.grpBoxDates.Controls.Add(this.dateTimePicker3);
             this.grpBoxDates.Controls.Add(this.dateTimePicker4);
-            this.grpBoxDates.Location = new System.Drawing.Point(1017, 1151);
-            this.grpBoxDates.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.grpBoxDates.Location = new System.Drawing.Point(642, 778);
+            this.grpBoxDates.Margin = new System.Windows.Forms.Padding(6);
             this.grpBoxDates.Name = "grpBoxDates";
-            this.grpBoxDates.Padding = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.grpBoxDates.Size = new System.Drawing.Size(633, 376);
+            this.grpBoxDates.Padding = new System.Windows.Forms.Padding(6);
+            this.grpBoxDates.Size = new System.Drawing.Size(400, 254);
             this.grpBoxDates.TabIndex = 20;
             this.grpBoxDates.TabStop = false;
             this.grpBoxDates.Text = "Select Your Dates";
@@ -354,10 +356,10 @@
             // 
             // btnShowInvites
             // 
-            this.btnShowInvites.Location = new System.Drawing.Point(2568, 413);
-            this.btnShowInvites.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.btnShowInvites.Location = new System.Drawing.Point(1622, 279);
+            this.btnShowInvites.Margin = new System.Windows.Forms.Padding(6);
             this.btnShowInvites.Name = "btnShowInvites";
-            this.btnShowInvites.Size = new System.Drawing.Size(307, 92);
+            this.btnShowInvites.Size = new System.Drawing.Size(194, 62);
             this.btnShowInvites.TabIndex = 21;
             this.btnShowInvites.Text = "Show Invites";
             this.btnShowInvites.UseVisualStyleBackColor = true;
@@ -367,30 +369,30 @@
             // inviteSelector
             // 
             this.inviteSelector.FormattingEnabled = true;
-            this.inviteSelector.Location = new System.Drawing.Point(14, 95);
-            this.inviteSelector.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.inviteSelector.Location = new System.Drawing.Point(9, 64);
+            this.inviteSelector.Margin = new System.Windows.Forms.Padding(6);
             this.inviteSelector.Name = "inviteSelector";
-            this.inviteSelector.Size = new System.Drawing.Size(375, 45);
+            this.inviteSelector.Size = new System.Drawing.Size(238, 33);
             this.inviteSelector.TabIndex = 22;
             this.inviteSelector.Visible = false;
             this.inviteSelector.SelectedIndexChanged += new System.EventHandler(this.inviteSelector_SelectedIndexChanged);
             // 
             // txtBxMeetingTopic
             // 
-            this.txtBxMeetingTopic.Location = new System.Drawing.Point(255, 252);
-            this.txtBxMeetingTopic.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.txtBxMeetingTopic.Location = new System.Drawing.Point(161, 170);
+            this.txtBxMeetingTopic.Margin = new System.Windows.Forms.Padding(6);
             this.txtBxMeetingTopic.Name = "txtBxMeetingTopic";
-            this.txtBxMeetingTopic.Size = new System.Drawing.Size(352, 44);
+            this.txtBxMeetingTopic.Size = new System.Drawing.Size(224, 31);
             this.txtBxMeetingTopic.TabIndex = 23;
             this.txtBxMeetingTopic.Visible = false;
             // 
             // roomName
             // 
             this.roomName.AutoSize = true;
-            this.roomName.Location = new System.Drawing.Point(24, 129);
-            this.roomName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.roomName.Location = new System.Drawing.Point(15, 87);
+            this.roomName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.roomName.Name = "roomName";
-            this.roomName.Size = new System.Drawing.Size(206, 37);
+            this.roomName.Size = new System.Drawing.Size(136, 25);
             this.roomName.TabIndex = 24;
             this.roomName.Text = "Room Name:";
             this.roomName.Visible = false;
@@ -398,10 +400,10 @@
             // buildingName
             // 
             this.buildingName.AutoSize = true;
-            this.buildingName.Location = new System.Drawing.Point(-2, 197);
-            this.buildingName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.buildingName.Location = new System.Drawing.Point(-1, 133);
+            this.buildingName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.buildingName.Name = "buildingName";
-            this.buildingName.Size = new System.Drawing.Size(235, 37);
+            this.buildingName.Size = new System.Drawing.Size(157, 25);
             this.buildingName.TabIndex = 25;
             this.buildingName.Text = "Building Name:";
             this.buildingName.Visible = false;
@@ -409,10 +411,10 @@
             // meetingTopic
             // 
             this.meetingTopic.AutoSize = true;
-            this.meetingTopic.Location = new System.Drawing.Point(128, 256);
-            this.meetingTopic.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.meetingTopic.Location = new System.Drawing.Point(81, 173);
+            this.meetingTopic.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.meetingTopic.Name = "meetingTopic";
-            this.meetingTopic.Size = new System.Drawing.Size(105, 37);
+            this.meetingTopic.Size = new System.Drawing.Size(71, 25);
             this.meetingTopic.TabIndex = 26;
             this.meetingTopic.Text = "Topic:";
             this.meetingTopic.Visible = false;
@@ -420,39 +422,39 @@
             // showDates
             // 
             this.showDates.FormattingEnabled = true;
-            this.showDates.Location = new System.Drawing.Point(14, 161);
-            this.showDates.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
+            this.showDates.Location = new System.Drawing.Point(9, 109);
+            this.showDates.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.showDates.Name = "showDates";
-            this.showDates.Size = new System.Drawing.Size(375, 45);
+            this.showDates.Size = new System.Drawing.Size(238, 33);
             this.showDates.TabIndex = 27;
             this.showDates.Visible = false;
             // 
             // txtBxEnterRequire
             // 
-            this.txtBxEnterRequire.Location = new System.Drawing.Point(255, 326);
-            this.txtBxEnterRequire.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.txtBxEnterRequire.Location = new System.Drawing.Point(161, 220);
+            this.txtBxEnterRequire.Margin = new System.Windows.Forms.Padding(6);
             this.txtBxEnterRequire.Name = "txtBxEnterRequire";
-            this.txtBxEnterRequire.Size = new System.Drawing.Size(352, 44);
+            this.txtBxEnterRequire.Size = new System.Drawing.Size(224, 31);
             this.txtBxEnterRequire.TabIndex = 28;
             this.txtBxEnterRequire.Visible = false;
             // 
             // lblRequirements
             // 
             this.lblRequirements.AutoSize = true;
-            this.lblRequirements.Location = new System.Drawing.Point(8, 333);
-            this.lblRequirements.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblRequirements.Location = new System.Drawing.Point(5, 225);
+            this.lblRequirements.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRequirements.Name = "lblRequirements";
-            this.lblRequirements.Size = new System.Drawing.Size(223, 37);
+            this.lblRequirements.Size = new System.Drawing.Size(151, 25);
             this.lblRequirements.TabIndex = 29;
             this.lblRequirements.Text = "Requirements:";
             this.lblRequirements.Visible = false;
             // 
             // acceptInvite
             // 
-            this.acceptInvite.Location = new System.Drawing.Point(410, 77);
-            this.acceptInvite.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.acceptInvite.Location = new System.Drawing.Point(259, 52);
+            this.acceptInvite.Margin = new System.Windows.Forms.Padding(6);
             this.acceptInvite.Name = "acceptInvite";
-            this.acceptInvite.Size = new System.Drawing.Size(238, 65);
+            this.acceptInvite.Size = new System.Drawing.Size(150, 44);
             this.acceptInvite.TabIndex = 30;
             this.acceptInvite.Text = "Accept";
             this.acceptInvite.UseVisualStyleBackColor = true;
@@ -461,10 +463,10 @@
             // 
             // DenyInvite
             // 
-            this.DenyInvite.Location = new System.Drawing.Point(410, 151);
-            this.DenyInvite.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.DenyInvite.Location = new System.Drawing.Point(259, 102);
+            this.DenyInvite.Margin = new System.Windows.Forms.Padding(6);
             this.DenyInvite.Name = "DenyInvite";
-            this.DenyInvite.Size = new System.Drawing.Size(238, 65);
+            this.DenyInvite.Size = new System.Drawing.Size(150, 44);
             this.DenyInvite.TabIndex = 31;
             this.DenyInvite.Text = "Decline";
             this.DenyInvite.UseVisualStyleBackColor = true;
@@ -473,10 +475,9 @@
             // 
             // showMeetings
             // 
-            this.showMeetings.Location = new System.Drawing.Point(2568, 573);
-            this.showMeetings.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.showMeetings.Location = new System.Drawing.Point(1622, 387);
             this.showMeetings.Name = "showMeetings";
-            this.showMeetings.Size = new System.Drawing.Size(307, 87);
+            this.showMeetings.Size = new System.Drawing.Size(194, 59);
             this.showMeetings.TabIndex = 32;
             this.showMeetings.Text = "Show Meetings";
             this.showMeetings.UseVisualStyleBackColor = true;
@@ -486,10 +487,9 @@
             // showAccepted
             // 
             this.showAccepted.FormattingEnabled = true;
-            this.showAccepted.Location = new System.Drawing.Point(1732, 573);
-            this.showAccepted.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.showAccepted.Location = new System.Drawing.Point(1094, 387);
             this.showAccepted.Name = "showAccepted";
-            this.showAccepted.Size = new System.Drawing.Size(637, 45);
+            this.showAccepted.Size = new System.Drawing.Size(404, 33);
             this.showAccepted.TabIndex = 33;
             this.showAccepted.Visible = false;
             this.showAccepted.SelectedIndexChanged += new System.EventHandler(this.showAccepted_SelectedIndexChanged);
@@ -497,18 +497,18 @@
             // showAttendees
             // 
             this.showAttendees.FormattingEnabled = true;
-            this.showAttendees.Location = new System.Drawing.Point(1732, 636);
+            this.showAttendees.Location = new System.Drawing.Point(1094, 430);
+            this.showAttendees.Margin = new System.Windows.Forms.Padding(2);
             this.showAttendees.Name = "showAttendees";
-            this.showAttendees.Size = new System.Drawing.Size(637, 45);
+            this.showAttendees.Size = new System.Drawing.Size(404, 33);
             this.showAttendees.TabIndex = 34;
             this.showAttendees.Visible = false;
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(2799, 1138);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnLogout.Location = new System.Drawing.Point(1600, 460);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(372, 110);
+            this.btnLogout.Size = new System.Drawing.Size(235, 74);
             this.btnLogout.TabIndex = 35;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -521,11 +521,9 @@
             this.grpBoxInvites.Controls.Add(this.showDates);
             this.grpBoxInvites.Controls.Add(this.acceptInvite);
             this.grpBoxInvites.Controls.Add(this.DenyInvite);
-            this.grpBoxInvites.Location = new System.Drawing.Point(849, 386);
-            this.grpBoxInvites.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.grpBoxInvites.Location = new System.Drawing.Point(536, 261);
             this.grpBoxInvites.Name = "grpBoxInvites";
-            this.grpBoxInvites.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.grpBoxInvites.Size = new System.Drawing.Size(727, 235);
+            this.grpBoxInvites.Size = new System.Drawing.Size(459, 159);
             this.grpBoxInvites.TabIndex = 36;
             this.grpBoxInvites.TabStop = false;
             this.grpBoxInvites.Text = "Show Invites";
@@ -542,11 +540,9 @@
             this.grpBoxMeetingDetails.Controls.Add(this.buildingName);
             this.grpBoxMeetingDetails.Controls.Add(this.lblEnterLocation);
             this.grpBoxMeetingDetails.Controls.Add(this.txtBxEnterRoom);
-            this.grpBoxMeetingDetails.Location = new System.Drawing.Point(768, 709);
-            this.grpBoxMeetingDetails.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.grpBoxMeetingDetails.Location = new System.Drawing.Point(485, 479);
             this.grpBoxMeetingDetails.Name = "grpBoxMeetingDetails";
-            this.grpBoxMeetingDetails.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.grpBoxMeetingDetails.Size = new System.Drawing.Size(789, 400);
+            this.grpBoxMeetingDetails.Size = new System.Drawing.Size(498, 270);
             this.grpBoxMeetingDetails.TabIndex = 37;
             this.grpBoxMeetingDetails.TabStop = false;
             this.grpBoxMeetingDetails.Text = "Meeting Details";
@@ -554,32 +550,49 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1719, 987);
-            this.button3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.button3.Location = new System.Drawing.Point(1086, 667);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(278, 55);
+            this.button3.Size = new System.Drawing.Size(176, 37);
             this.button3.TabIndex = 38;
             this.button3.Text = "Save data to file";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // showInvites
+            // 
+            this.showInvites.FormattingEnabled = true;
+            this.showInvites.Location = new System.Drawing.Point(996, 822);
+            this.showInvites.Name = "showInvites";
+            this.showInvites.Size = new System.Drawing.Size(1047, 33);
+            this.showInvites.TabIndex = 39;
+            this.showInvites.SelectedIndexChanged += new System.EventHandler(this.showInvites_SelectedIndexChanged);
+            // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(2018, 987);
-            this.button4.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.button4.Location = new System.Drawing.Point(1802, 673);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(280, 55);
-            this.button4.TabIndex = 39;
-            this.button4.Text = "Flush File Data";
+            this.button4.Size = new System.Drawing.Size(179, 55);
+            this.button4.TabIndex = 40;
+            this.button4.Text = "Show Diction";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(1057, 954);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(912, 33);
+            this.comboBox1.TabIndex = 41;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(3407, 1600);
+            this.ClientSize = new System.Drawing.Size(2152, 1081);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button4);
+            this.Controls.Add(this.showInvites);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.grpBoxMeetingDetails);
             this.Controls.Add(this.grpBoxInvites);
@@ -595,7 +608,7 @@
             this.Controls.Add(this.accoutCreate);
             this.Controls.Add(this.grpBxLogin);
             this.Controls.Add(this.Welcome);
-            this.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -658,7 +671,9 @@
         private System.Windows.Forms.GroupBox grpBoxInvites;
         private System.Windows.Forms.GroupBox grpBoxMeetingDetails;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox showInvites;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
