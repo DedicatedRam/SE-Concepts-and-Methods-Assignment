@@ -20,8 +20,6 @@ namespace SE_Concepts_and_Methods_Assignment
         Dictionary<int, object> inviteDic = new Dictionary<int, object>();
         Dictionary<int, object> meetingDic = new Dictionary<int, object>();
         
-       //private int inviteID = 0;
-        //private int meetingID = 0;
 
         public void showOptions()
         {
@@ -29,6 +27,7 @@ namespace SE_Concepts_and_Methods_Assignment
             btnShowInvites.Visible = true;
             btnLogout.Visible = true;
             showMeetings.Visible = true;
+            label7.Visible = true;
         }
         public void clearLoginPage()
         {
@@ -71,7 +70,7 @@ namespace SE_Concepts_and_Methods_Assignment
                 {
                     attendees.Add(person);
                 }
-                Meeting Alpha = new Meeting(int.Parse(entry[0]), entry[5], entry[1], attendees, entry[3], entry[4]);
+                Meeting Alpha = new Meeting(int.Parse(entry[0]), entry[5], entry[1], attendees, entry[3], entry[4] , entry[6]);
                 meetingDic.Add(int.Parse(entry[0]), Alpha);
                 foreach  (Person person in personDic.Values)
                 {
@@ -106,7 +105,7 @@ namespace SE_Concepts_and_Methods_Assignment
                 {
                     Attendees.Add(invitee);
                 }
-                MeetingNotification Alpha = new MeetingNotification(int.Parse(entries[0]), entries[1], Dates, Attendees, entries[4], entries[5]);
+                MeetingNotification Alpha = new MeetingNotification(int.Parse(entries[0]), entries[1], Dates, Attendees, entries[4], entries[5], entries[6]);
                 inviteDic.Add(int.Parse(entries[0]), Alpha);
                 foreach (Person person in personDic.Values)
                 {
@@ -153,7 +152,7 @@ namespace SE_Concepts_and_Methods_Assignment
 
 
 
-                string output = (meet.getID() + "/" + meet.getDate() + "/" + attendees + "/" + meet.getRequirements() + "/" + meet.getLocation() + "/" + meet.getTopic()).ToString();
+                string output = (meet.getID() + "/" + meet.getDate() + "/" + attendees + "/" + meet.getRequirements() + "/" + meet.getLocation() + "/" + meet.getTopic() + "/" + meet.getTime()).ToString();
 
                 using (StreamWriter outputFile = File.AppendText(strFilePath))
                 {
@@ -182,7 +181,7 @@ namespace SE_Concepts_and_Methods_Assignment
                 {
                     invitees += person + ",";
                 }
-                string output = (notif.getID() + "/" + notif.getTopic() + "/" + times + "/" + invitees + "/" + notif.getLocation() + "/" + notif.getRequire() + "/");
+                string output = (notif.getID() + "/" + notif.getTopic() + "/" + times + "/" + invitees + "/" + notif.getLocation() + "/" + notif.getRequire() + "/" + notif.getMeetTime() + "/");
                 using (StreamWriter outputFile = File.AppendText(strFilePath))
                 {
                     outputFile.WriteLine(output);
@@ -297,6 +296,8 @@ namespace SE_Concepts_and_Methods_Assignment
             txtBxMeetingTopic.Visible = true;
             txtBxEnterRoom.Visible = true;
             btnDateSubmission.Visible = true;
+            lblTimeInput.Visible = true;
+            txtBoxEnterTime.Visible = true;
             foreach(Person person in personDic.Values)
             {
                 chckBoxShowPeople.Items.Add(person.getUser());
@@ -307,6 +308,7 @@ namespace SE_Concepts_and_Methods_Assignment
         {
             List<string> suggestedTimes = new List<string>();
             List<string> invitees = new List<string>();
+            string meetTime = txtBoxEnterTime.Text;
             DateTime suggestedDate1 = dateTimePicker1.Value;
             DateTime suggestedDate2 = dateTimePicker2.Value;
             DateTime suggestedDate3 = dateTimePicker3.Value;
@@ -323,7 +325,7 @@ namespace SE_Concepts_and_Methods_Assignment
             string location = txtBxEnterBuilding.Text + txtBxEnterRoom.Text;
             string require = txtBxEnterRequire.Text;
             int inviteID = inviteDic.Count + 1;
-            MeetingNotification invite = new MeetingNotification(inviteID, Tpic, suggestedTimes, invitees, location, require);
+            MeetingNotification invite = new MeetingNotification(inviteID, Tpic, suggestedTimes, invitees, location, require, meetTime);
             inviteDic.Add(inviteID, invite);
             inviteID++;
             foreach (string invitee in invitees)
@@ -417,7 +419,7 @@ namespace SE_Concepts_and_Methods_Assignment
                         if (person.getInvitesList()[i].getTopic() == inviteSelector.SelectedItem.ToString())
                         {
                             int meetingID = meetingDic.Count + 1;
-                            Meeting meet = new Meeting(meetingID, person.getInvitesList()[i].getTopic(), showDates.SelectedItem.ToString(), person.getInvitesList()[i].getInvitees(), person.getInvitesList()[i].getRequire(), person.getInvitesList()[i].getLocation());
+                            Meeting meet = new Meeting(meetingID, person.getInvitesList()[i].getTopic(), showDates.SelectedItem.ToString(), person.getInvitesList()[i].getInvitees(), person.getInvitesList()[i].getRequire(), person.getInvitesList()[i].getLocation(), person.getInvitesList()[i].getMeetTime());
                             meetingDic.Add(meetingID, meet);
                             int x = 0;
                             foreach (MeetingNotification item in inviteDic.Values)
@@ -480,6 +482,8 @@ namespace SE_Concepts_and_Methods_Assignment
             lblInvitees.Visible = true;
             lblshowMeetRequire.Visible = true;
             lblLocation.Visible = true;
+            lblTime.Visible = true;
+            lblShowTime.Visible = true;
             lblMeetDate.Visible = true;
             lblShowMeetDate.Visible = true;
             lblShowMeetLoc.Visible = true;
@@ -596,6 +600,7 @@ namespace SE_Concepts_and_Methods_Assignment
                     lblShowMeetLoc.Text = meet.getLocation();
                     lblshowMeetRequire.Text = meet.getRequirements();
                     lblShowMeetDate.Text = meet.getDate();
+                    lblShowTime.Text = meet.getTime();
                     foreach (string name in meet.getAttendees())
                     {
                         showAttendees.Items.Add(name);
@@ -612,6 +617,11 @@ namespace SE_Concepts_and_Methods_Assignment
         }
 
         private void showAttendees_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }

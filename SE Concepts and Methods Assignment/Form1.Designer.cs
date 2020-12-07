@@ -82,6 +82,10 @@
             this.lblRequire = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtBoxEnterTime = new System.Windows.Forms.TextBox();
+            this.lblTimeInput = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lblShowTime = new System.Windows.Forms.Label();
             this.grpBxLogin.SuspendLayout();
             this.accoutCreate.SuspendLayout();
             this.grpBoxDates.SuspendLayout();
@@ -348,15 +352,17 @@
             // 
             // grpBoxDates
             // 
+            this.grpBoxDates.Controls.Add(this.lblTimeInput);
+            this.grpBoxDates.Controls.Add(this.txtBoxEnterTime);
             this.grpBoxDates.Controls.Add(this.dateTimePicker1);
             this.grpBoxDates.Controls.Add(this.dateTimePicker2);
             this.grpBoxDates.Controls.Add(this.dateTimePicker3);
             this.grpBoxDates.Controls.Add(this.dateTimePicker4);
-            this.grpBoxDates.Location = new System.Drawing.Point(642, 778);
+            this.grpBoxDates.Location = new System.Drawing.Point(489, 780);
             this.grpBoxDates.Margin = new System.Windows.Forms.Padding(6);
             this.grpBoxDates.Name = "grpBoxDates";
             this.grpBoxDates.Padding = new System.Windows.Forms.Padding(6);
-            this.grpBoxDates.Size = new System.Drawing.Size(400, 254);
+            this.grpBoxDates.Size = new System.Drawing.Size(583, 254);
             this.grpBoxDates.TabIndex = 20;
             this.grpBoxDates.TabStop = false;
             this.grpBoxDates.Text = "Select Your Dates";
@@ -505,7 +511,7 @@
             // showAttendees
             // 
             this.showAttendees.FormattingEnabled = true;
-            this.showAttendees.Location = new System.Drawing.Point(150, 309);
+            this.showAttendees.Location = new System.Drawing.Point(150, 346);
             this.showAttendees.Margin = new System.Windows.Forms.Padding(2);
             this.showAttendees.Name = "showAttendees";
             this.showAttendees.Size = new System.Drawing.Size(232, 33);
@@ -569,6 +575,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblShowTime);
+            this.groupBox1.Controls.Add(this.lblTime);
             this.groupBox1.Controls.Add(this.lblInvitees);
             this.groupBox1.Controls.Add(this.lblShowMeetDate);
             this.groupBox1.Controls.Add(this.lblMeetDate);
@@ -589,7 +597,7 @@
             // lblInvitees
             // 
             this.lblInvitees.AutoSize = true;
-            this.lblInvitees.Location = new System.Drawing.Point(19, 317);
+            this.lblInvitees.Location = new System.Drawing.Point(19, 354);
             this.lblInvitees.Name = "lblInvitees";
             this.lblInvitees.Size = new System.Drawing.Size(86, 25);
             this.lblInvitees.TabIndex = 39;
@@ -655,7 +663,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(927, 83);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(280, 50);
+            this.label6.Size = new System.Drawing.Size(140, 25);
             this.label6.TabIndex = 40;
             this.label6.Text = "Current User:";
             // 
@@ -667,6 +675,43 @@
             this.label7.Size = new System.Drawing.Size(140, 25);
             this.label7.TabIndex = 41;
             this.label7.Text = "Current User:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // txtBoxEnterTime
+            // 
+            this.txtBoxEnterTime.Location = new System.Drawing.Point(365, 63);
+            this.txtBoxEnterTime.Name = "txtBoxEnterTime";
+            this.txtBoxEnterTime.Size = new System.Drawing.Size(100, 31);
+            this.txtBoxEnterTime.TabIndex = 15;
+            this.txtBoxEnterTime.Visible = false;
+            // 
+            // lblTimeInput
+            // 
+            this.lblTimeInput.AutoSize = true;
+            this.lblTimeInput.Location = new System.Drawing.Point(260, 26);
+            this.lblTimeInput.Name = "lblTimeInput";
+            this.lblTimeInput.Size = new System.Drawing.Size(305, 25);
+            this.lblTimeInput.TabIndex = 16;
+            this.lblTimeInput.Text = "Enter Time in this format 24:30";
+            this.lblTimeInput.Visible = false;
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Location = new System.Drawing.Point(24, 303);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(65, 25);
+            this.lblTime.TabIndex = 40;
+            this.lblTime.Text = "Time:";
+            this.lblTime.Visible = false;
+            // 
+            // lblShowTime
+            // 
+            this.lblShowTime.AutoSize = true;
+            this.lblShowTime.Location = new System.Drawing.Point(193, 303);
+            this.lblShowTime.Name = "lblShowTime";
+            this.lblShowTime.Size = new System.Drawing.Size(0, 25);
+            this.lblShowTime.TabIndex = 41;
             // 
             // Form1
             // 
@@ -698,6 +743,7 @@
             this.accoutCreate.ResumeLayout(false);
             this.accoutCreate.PerformLayout();
             this.grpBoxDates.ResumeLayout(false);
+            this.grpBoxDates.PerformLayout();
             this.grpBoxInvites.ResumeLayout(false);
             this.grpBoxMeetingDetails.ResumeLayout(false);
             this.grpBoxMeetingDetails.PerformLayout();
@@ -764,6 +810,10 @@
         private System.Windows.Forms.Label lblInvitees;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblTimeInput;
+        private System.Windows.Forms.TextBox txtBoxEnterTime;
+        private System.Windows.Forms.Label lblShowTime;
+        private System.Windows.Forms.Label lblTime;
     }
 }
 
