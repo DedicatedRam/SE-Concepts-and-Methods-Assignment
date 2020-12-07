@@ -72,14 +72,22 @@
             this.grpBoxInvites = new System.Windows.Forms.GroupBox();
             this.grpBoxMeetingDetails = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.showInvites = new System.Windows.Forms.ComboBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblInvitees = new System.Windows.Forms.Label();
+            this.lblShowMeetDate = new System.Windows.Forms.Label();
+            this.lblMeetDate = new System.Windows.Forms.Label();
+            this.lblShowMeetLoc = new System.Windows.Forms.Label();
+            this.lblshowMeetRequire = new System.Windows.Forms.Label();
+            this.lblLocation = new System.Windows.Forms.Label();
+            this.lblRequire = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.grpBxLogin.SuspendLayout();
             this.accoutCreate.SuspendLayout();
             this.grpBoxDates.SuspendLayout();
             this.grpBoxInvites.SuspendLayout();
             this.grpBoxMeetingDetails.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Welcome
@@ -487,7 +495,7 @@
             // showAccepted
             // 
             this.showAccepted.FormattingEnabled = true;
-            this.showAccepted.Location = new System.Drawing.Point(1094, 387);
+            this.showAccepted.Location = new System.Drawing.Point(24, 64);
             this.showAccepted.Name = "showAccepted";
             this.showAccepted.Size = new System.Drawing.Size(404, 33);
             this.showAccepted.TabIndex = 33;
@@ -497,12 +505,13 @@
             // showAttendees
             // 
             this.showAttendees.FormattingEnabled = true;
-            this.showAttendees.Location = new System.Drawing.Point(1094, 430);
+            this.showAttendees.Location = new System.Drawing.Point(150, 309);
             this.showAttendees.Margin = new System.Windows.Forms.Padding(2);
             this.showAttendees.Name = "showAttendees";
-            this.showAttendees.Size = new System.Drawing.Size(404, 33);
+            this.showAttendees.Size = new System.Drawing.Size(232, 33);
             this.showAttendees.TabIndex = 34;
             this.showAttendees.Visible = false;
+            this.showAttendees.SelectedIndexChanged += new System.EventHandler(this.showAttendees_SelectedIndexChanged);
             // 
             // btnLogout
             // 
@@ -550,7 +559,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1086, 667);
+            this.button3.Location = new System.Drawing.Point(1622, 344);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(176, 37);
             this.button3.TabIndex = 38;
@@ -558,47 +567,119 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // showInvites
+            // groupBox1
             // 
-            this.showInvites.FormattingEnabled = true;
-            this.showInvites.Location = new System.Drawing.Point(996, 822);
-            this.showInvites.Name = "showInvites";
-            this.showInvites.Size = new System.Drawing.Size(1047, 33);
-            this.showInvites.TabIndex = 39;
-            this.showInvites.SelectedIndexChanged += new System.EventHandler(this.showInvites_SelectedIndexChanged);
+            this.groupBox1.Controls.Add(this.lblInvitees);
+            this.groupBox1.Controls.Add(this.lblShowMeetDate);
+            this.groupBox1.Controls.Add(this.lblMeetDate);
+            this.groupBox1.Controls.Add(this.lblShowMeetLoc);
+            this.groupBox1.Controls.Add(this.lblshowMeetRequire);
+            this.groupBox1.Controls.Add(this.lblLocation);
+            this.groupBox1.Controls.Add(this.lblRequire);
+            this.groupBox1.Controls.Add(this.showAccepted);
+            this.groupBox1.Controls.Add(this.showAttendees);
+            this.groupBox1.Location = new System.Drawing.Point(1081, 580);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(469, 454);
+            this.groupBox1.TabIndex = 39;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Show Meeting Data";
+            this.groupBox1.Visible = false;
             // 
-            // button4
+            // lblInvitees
             // 
-            this.button4.Location = new System.Drawing.Point(1802, 673);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(179, 55);
-            this.button4.TabIndex = 40;
-            this.button4.Text = "Show Diction";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.lblInvitees.AutoSize = true;
+            this.lblInvitees.Location = new System.Drawing.Point(19, 317);
+            this.lblInvitees.Name = "lblInvitees";
+            this.lblInvitees.Size = new System.Drawing.Size(86, 25);
+            this.lblInvitees.TabIndex = 39;
+            this.lblInvitees.Text = "Invitees";
             // 
-            // comboBox1
+            // lblShowMeetDate
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1057, 954);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(912, 33);
-            this.comboBox1.TabIndex = 41;
+            this.lblShowMeetDate.AutoSize = true;
+            this.lblShowMeetDate.Location = new System.Drawing.Point(193, 263);
+            this.lblShowMeetDate.Name = "lblShowMeetDate";
+            this.lblShowMeetDate.Size = new System.Drawing.Size(0, 25);
+            this.lblShowMeetDate.TabIndex = 38;
+            this.lblShowMeetDate.Visible = false;
+            // 
+            // lblMeetDate
+            // 
+            this.lblMeetDate.AutoSize = true;
+            this.lblMeetDate.Location = new System.Drawing.Point(19, 263);
+            this.lblMeetDate.Name = "lblMeetDate";
+            this.lblMeetDate.Size = new System.Drawing.Size(63, 25);
+            this.lblMeetDate.TabIndex = 37;
+            this.lblMeetDate.Text = "Date:";
+            this.lblMeetDate.Visible = false;
+            // 
+            // lblShowMeetLoc
+            // 
+            this.lblShowMeetLoc.AutoSize = true;
+            this.lblShowMeetLoc.Location = new System.Drawing.Point(193, 214);
+            this.lblShowMeetLoc.Name = "lblShowMeetLoc";
+            this.lblShowMeetLoc.Size = new System.Drawing.Size(0, 25);
+            this.lblShowMeetLoc.TabIndex = 36;
+            // 
+            // lblshowMeetRequire
+            // 
+            this.lblshowMeetRequire.AutoSize = true;
+            this.lblshowMeetRequire.Location = new System.Drawing.Point(193, 162);
+            this.lblshowMeetRequire.Name = "lblshowMeetRequire";
+            this.lblshowMeetRequire.Size = new System.Drawing.Size(0, 25);
+            this.lblshowMeetRequire.TabIndex = 35;
+            // 
+            // lblLocation
+            // 
+            this.lblLocation.AutoSize = true;
+            this.lblLocation.Location = new System.Drawing.Point(19, 214);
+            this.lblLocation.Name = "lblLocation";
+            this.lblLocation.Size = new System.Drawing.Size(106, 25);
+            this.lblLocation.TabIndex = 1;
+            this.lblLocation.Text = "Location: ";
+            this.lblLocation.Visible = false;
+            // 
+            // lblRequire
+            // 
+            this.lblRequire.AutoSize = true;
+            this.lblRequire.Location = new System.Drawing.Point(19, 162);
+            this.lblRequire.Name = "lblRequire";
+            this.lblRequire.Size = new System.Drawing.Size(157, 25);
+            this.lblRequire.TabIndex = 0;
+            this.lblRequire.Text = "Requirements: ";
+            this.lblRequire.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(927, 83);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(280, 50);
+            this.label6.TabIndex = 40;
+            this.label6.Text = "Current User:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1076, 83);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(140, 25);
+            this.label7.TabIndex = 41;
+            this.label7.Text = "Current User:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2152, 1081);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.showInvites);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.grpBoxMeetingDetails);
             this.Controls.Add(this.grpBoxInvites);
             this.Controls.Add(this.btnLogout);
-            this.Controls.Add(this.showAttendees);
-            this.Controls.Add(this.showAccepted);
             this.Controls.Add(this.showMeetings);
             this.Controls.Add(this.btnShowInvites);
             this.Controls.Add(this.grpBoxDates);
@@ -620,6 +701,8 @@
             this.grpBoxInvites.ResumeLayout(false);
             this.grpBoxMeetingDetails.ResumeLayout(false);
             this.grpBoxMeetingDetails.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -671,9 +754,16 @@
         private System.Windows.Forms.GroupBox grpBoxInvites;
         private System.Windows.Forms.GroupBox grpBoxMeetingDetails;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ComboBox showInvites;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblRequire;
+        private System.Windows.Forms.Label lblLocation;
+        private System.Windows.Forms.Label lblShowMeetLoc;
+        private System.Windows.Forms.Label lblshowMeetRequire;
+        private System.Windows.Forms.Label lblShowMeetDate;
+        private System.Windows.Forms.Label lblMeetDate;
+        private System.Windows.Forms.Label lblInvitees;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }
 

@@ -11,12 +11,12 @@ namespace SE_Concepts_and_Methods_Assignment
         // Attributes
         private int id;
         private string topic;
-        private List<DateTime> suggestedTimes;
+        private List<string> suggestedTimes;
         private List<string> invitees;
         private string location;
         private string requirements;
 
-        public MeetingNotification(int ID, string Topic, List<DateTime> Times, List<string>attendees, string loc, string requirement)
+        public MeetingNotification(int ID, string Topic, List<string> Times, List<string>attendees, string loc, string requirement)
         {
             this.id = ID;
             this.topic = Topic;
@@ -27,11 +27,13 @@ namespace SE_Concepts_and_Methods_Assignment
         }
 
         // Functions
+
+        
         public int getID()
         {
             return this.id;
         }
-        public List<DateTime> getTimes()
+        public List<string> getTimes()
         {
             return this.suggestedTimes;
         }

@@ -29,6 +29,29 @@ namespace SE_Concepts_and_Methods_Assignment
         }
 
         // Functions
+
+        
+        public int getInviteListSize()
+        {
+            return this.meetingInvite.Count();
+        }
+        public void removeFromInviteList(string topic)
+        {
+            
+            for (int i = 0; i < meetingInvite.Count; i++)
+            {
+
+
+                if (meetingInvite[i].getTopic() == topic)
+                {
+                    meetingInvite.RemoveAt(i);
+                }
+
+            }
+                
+                
+            
+        }
         public void addInviteToList(Meeting accepted)
         {
             acceptedMeetings.Add(accepted);

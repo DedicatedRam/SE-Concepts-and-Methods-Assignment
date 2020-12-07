@@ -64,7 +64,7 @@ namespace SE_Concepts_and_Methods_Assignment
             System.IO.StreamReader file = new System.IO.StreamReader(@".\\meeting.txt");
             while ((line = file.ReadLine()) != null)
             {
-                string[] entry = line.Split('-');
+                string[] entry = line.Split('/');
                 List<string> attendees = new List<string>();
                 string[] invitees = entry[2].Split(',');
                 foreach (string person in invitees)
@@ -94,15 +94,13 @@ namespace SE_Concepts_and_Methods_Assignment
             while ((line = file.ReadLine()) != null)
             {
                 string[] entries = line.Split('/');
-                string[] dates = entries[2].Split('-');
-                List<DateTime> Dates = new List<DateTime>();
+                string[] dates = entries[2].Split(',');
+                List<string> Dates = new List<string>();
                 List<string> Attendees = new List<string>();
                 string[] attendees = entries[3].Split(',');
                 foreach (string date in dates)
                 {
-                    DateTime d;
-                    DateTime.TryParseExact(date, "MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out d);
-                    Dates.Add(d);
+                    Dates.Add(date);
                 }
                 foreach (string invitee in attendees)
                 {
@@ -149,13 +147,13 @@ namespace SE_Concepts_and_Methods_Assignment
                 string attendees = "";
                 foreach (string name in meet.getAttendees())
                 {
-                    attendees +=  name + ", ";
+                    attendees +=  name + ",";
                 }
 
 
 
 
-                string output = (meet.getID() + "-" + meet.getDate() + "-" + attendees + "-" + meet.getRequirements() + "-" + meet.getLocation() + "-" + meet.getTopic() + "-").ToString();
+                string output = (meet.getID() + "/" + meet.getDate() + "/" + attendees + "/" + meet.getRequirements() + "/" + meet.getLocation() + "/" + meet.getTopic()).ToString();
 
                 using (StreamWriter outputFile = File.AppendText(strFilePath))
                 {
@@ -174,10 +172,12 @@ namespace SE_Concepts_and_Methods_Assignment
             {
                 string times = "";
                 string invitees = "";
-                foreach (DateTime time in notif.getTimes())
+                foreach (string time in notif.getTimes())
                 {
-                    times += time.ToString("MM-dd-yyyy")+ ",";
+                    times += time+ ",";
+                    
                 }
+                
                 foreach (string person in notif.getInvitees())
                 {
                     invitees += person + ",";
@@ -244,6 +244,7 @@ namespace SE_Concepts_and_Methods_Assignment
                         user.logIn();
                         clearLoginPage();
                         showOptions();
+                        label7.Text = user.getUser();
                     }
                     if (user.getPass() != PasswordInput.Text)
                     {
@@ -304,16 +305,16 @@ namespace SE_Concepts_and_Methods_Assignment
 
         private void btnDateSubmission_Click(object sender, EventArgs e)
         {
-            List<DateTime> suggestedTimes = new List<DateTime>();
+            List<string> suggestedTimes = new List<string>();
             List<string> invitees = new List<string>();
             DateTime suggestedDate1 = dateTimePicker1.Value;
             DateTime suggestedDate2 = dateTimePicker2.Value;
             DateTime suggestedDate3 = dateTimePicker3.Value;
             DateTime suggestedDate4 = dateTimePicker4.Value;
-            suggestedTimes.Add(suggestedDate1);
-            suggestedTimes.Add(suggestedDate2);
-            suggestedTimes.Add(suggestedDate3);
-            suggestedTimes.Add(suggestedDate4);
+            suggestedTimes.Add(suggestedDate1.ToString("MM-dd-yyyy"));
+            suggestedTimes.Add(suggestedDate2.ToString("MM-dd-yyyy"));
+            suggestedTimes.Add(suggestedDate3.ToString("MM-dd-yyyy"));
+            suggestedTimes.Add(suggestedDate4.ToString("MM-dd-yyyy"));
             string Tpic = txtBxMeetingTopic.Text;
             foreach (string person in chckBoxShowPeople.CheckedItems)
             {
@@ -385,35 +386,50 @@ namespace SE_Concepts_and_Methods_Assignment
 
         private void inviteSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (MeetingNotification notif in inviteDic.Values)
+            foreach (Person person in personDic.Values)
             {
-                if (inviteSelector.SelectedItem == notif.getTopic())
+                if ((person.getUser() == label7.Text) && (person.getStatus() == true))
                 {
                     showDates.Items.Clear();
-                    foreach (DateTime dates in notif.getTimes())
+                    foreach (MeetingNotification notif in person.getInvitesList())
                     {
-                        showDates.Items.Add(dates.ToString("MM-dd-yyyy"));
+                        if (inviteSelector.SelectedItem.ToString() == notif.getTopic())
+                        {
+                            foreach (string dates in notif.getTimes())
+                            {
+                                showDates.Items.Add(dates);
+                            }
+                        }
                     }
                 }
             }
+            
         }
 
         private void acceptInvite_Click(object sender, EventArgs e)
         {
             foreach (Person person in personDic.Values)
             {
-                if (person.getStatus() == true)
+                if (person.getUser() == label7.Text)
                 {
-                    foreach (MeetingNotification notifi in person.getInvitesList())
+                    for (int i = 0; i < person.getInviteListSize(); i++)
                     {
-                        if (notifi.getTopic() == inviteSelector.SelectedItem.ToString())
+                        if (person.getInvitesList()[i].getTopic() == inviteSelector.SelectedItem.ToString())
                         {
                             int meetingID = meetingDic.Count + 1;
-                            Meeting meet = new Meeting(meetingID, notifi.getTopic(), showDates.SelectedItem.ToString(), notifi.getInvitees(), notifi.getRequire(), notifi.getLocation());
+                            Meeting meet = new Meeting(meetingID, person.getInvitesList()[i].getTopic(), showDates.SelectedItem.ToString(), person.getInvitesList()[i].getInvitees(), person.getInvitesList()[i].getRequire(), person.getInvitesList()[i].getLocation());
                             meetingDic.Add(meetingID, meet);
-                            inviteDic.Remove(notifi.getID());
-                            meetingID++;
+                            int x = 0;
+                            foreach (MeetingNotification item in inviteDic.Values)
+                            {
+                                if (item.getTopic() == person.getInvitesList()[i].getTopic())
+                                {
+                                    x = item.getID();
+                                }
+                            }
+                            inviteDic.Remove(x);
                             person.addInviteToList(meet);
+                            person.removeFromInviteList(person.getInvitesList()[i].getTopic());
                             inviteSelector.Items.Clear();
                             showDates.Items.Clear();
                             showDates.Visible = false;
@@ -421,8 +437,10 @@ namespace SE_Concepts_and_Methods_Assignment
                             acceptInvite.Visible = false;
                             DenyInvite.Visible = false;
                             grpBoxInvites.Visible = false;
+
                         }
                     }
+                    
                     
                 }
             }
@@ -457,6 +475,14 @@ namespace SE_Concepts_and_Methods_Assignment
         {
             showAccepted.Visible = true;
             showAccepted.Items.Clear();
+            groupBox1.Visible = true;
+            lblRequire.Visible = true;
+            lblInvitees.Visible = true;
+            lblshowMeetRequire.Visible = true;
+            lblLocation.Visible = true;
+            lblMeetDate.Visible = true;
+            lblShowMeetDate.Visible = true;
+            lblShowMeetLoc.Visible = true;
             showAttendees.Visible = true;
             showAttendees.Items.Clear();
             foreach (Person person in personDic.Values)
@@ -466,14 +492,16 @@ namespace SE_Concepts_and_Methods_Assignment
                 {
 
                 
-                    foreach (Meeting meet in meetingDic.Values)
+                    foreach (Meeting meet in person.getAcceptedMeetings())
                     {
-                        showAccepted.Items.Add(meet.getTopic() + " " + meet.getDate() + " " + meet.getLocation());
-                        showAttendees.Items.Clear();
-                        foreach (string name in meet.getAttendees())
-                        {
-                            showAttendees.Items.Add(name);
-                        }
+                        
+                            
+                                showAccepted.Items.Add(meet.getTopic());
+                                showAttendees.Items.Clear();
+                                
+                            
+                        
+                        
                     }
                 }
             }
@@ -481,6 +509,16 @@ namespace SE_Concepts_and_Methods_Assignment
 
         public void goToLogin()
         {
+            label6.Visible = false;
+            label7.Visible = false;
+            lblRequire.Visible = false;
+            lblshowMeetRequire.Visible = false;
+            lblLocation.Visible = false;
+            lblShowMeetLoc.Visible = false;
+            lblMeetDate.Visible = false;
+            lblShowMeetDate.Visible = false;
+            lblInvitees.Visible = false;
+            groupBox1.Visible = false;
             inviteSelector.Visible = false;
             showDates.Visible = false;
             acceptInvite.Visible = false;
@@ -529,6 +567,10 @@ namespace SE_Concepts_and_Methods_Assignment
             goToLogin();
             UserNameInput.Text = "";
             PasswordInput.Text = "";
+            flushCSVData();
+            writeUserData();
+            writeInviteData();
+            writeMeetingData();
             foreach (Person person in personDic.Values)
             {
                 if (person.getStatus() == true)
@@ -540,35 +582,36 @@ namespace SE_Concepts_and_Methods_Assignment
 
         private void button3_Click(object sender, EventArgs e)
         {
-            flushCSVData();
-            writeUserData();
-            writeInviteData();
-            writeMeetingData();  
+             
         }
 
 
         private void showAccepted_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            foreach (MeetingNotification notif in inviteDic.Values)
+            foreach (Meeting meet in meetingDic.Values)
             {
-                if (notif.getID() == 1)
+                if (showAccepted.SelectedItem.ToString() == meet.getTopic())
                 {
-                    foreach (DateTime dates in notif.getTimes())
+                    showAttendees.Items.Clear();
+                    lblShowMeetLoc.Text = meet.getLocation();
+                    lblshowMeetRequire.Text = meet.getRequirements();
+                    lblShowMeetDate.Text = meet.getDate();
+                    foreach (string name in meet.getAttendees())
                     {
-                        comboBox1.Items.Add(dates.ToString("MM-dd-yyyy"));
+                        showAttendees.Items.Add(name);
                     }
+                    
                 }
-                
             }
-
         }
+
 
         private void showInvites_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void showAttendees_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
