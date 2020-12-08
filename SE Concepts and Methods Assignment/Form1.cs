@@ -138,7 +138,6 @@ namespace SE_Concepts_and_Methods_Assignment
         public void writeMeetingData()
         {
             string strFilePath = @".\\meeting.txt";
-            string strSeperator = "/";
 
 
             foreach (Meeting meet in meetingDic.Values)
@@ -165,7 +164,6 @@ namespace SE_Concepts_and_Methods_Assignment
         public void writeInviteData()
         {
             string strFilePath = @".\\meetingInvites.txt";
-            string strSeparator = "/";
 
             foreach (MeetingNotification notif in inviteDic.Values)
             {
@@ -192,7 +190,6 @@ namespace SE_Concepts_and_Methods_Assignment
         public void writeUserData()
         {
             string strFilePath = @".\\users.txt";
-            string strSeperator = "/";
 
             
             foreach (Person person in personDic.Values)
