@@ -477,6 +477,8 @@ namespace SE_Concepts_and_Methods_Assignment
         {
             showAccepted.Visible = true;
             showAccepted.Items.Clear();
+            label8.Visible = true;
+            label9.Visible = true;
             groupBox1.Visible = true;
             lblRequire.Visible = true;
             lblInvitees.Visible = true;
@@ -495,13 +497,13 @@ namespace SE_Concepts_and_Methods_Assignment
                 if(person.getStatus() == true)
                 {
 
-                
+
                     foreach (Meeting meet in person.getAcceptedMeetings())
                     {
-                        
-                            
-                                showAccepted.Items.Add(meet.getTopic());
-                                showAttendees.Items.Clear();
+
+
+                            showAccepted.Items.Add(meet.getTopic());
+                            showAttendees.Items.Clear();
                                 
                             
                         
@@ -514,6 +516,9 @@ namespace SE_Concepts_and_Methods_Assignment
         public void goToLogin()
         {
             label6.Visible = false;
+            label8.Visible = false;
+            label9.Visible = false;
+            btnLogout.Visible = false;
             label7.Visible = false;
             lblRequire.Visible = false;
             lblshowMeetRequire.Visible = false;
@@ -584,10 +589,6 @@ namespace SE_Concepts_and_Methods_Assignment
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-             
-        }
 
 
         private void showAccepted_SelectedIndexChanged(object sender, EventArgs e)
@@ -618,10 +619,31 @@ namespace SE_Concepts_and_Methods_Assignment
 
         private void showAttendees_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            foreach (Person person in personDic.Values)
+            {
+                if (person.getUser() == showAttendees.SelectedItem.ToString())
+                {
+                    foreach (Meeting meeting in person.getAcceptedMeetings())
+                    {
+                        if (meeting.getTopic() == showAccepted.SelectedItem.ToString())
+                        {
+                            label9.Text = "True";
+                        }
+                        else
+                        {
+                            label9.Text = "False";
+                        }
+                    }
+                }
+            }
         }
 
         private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTime_Click(object sender, EventArgs e)
         {
 
         }

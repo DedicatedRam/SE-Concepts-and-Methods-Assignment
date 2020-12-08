@@ -54,6 +54,8 @@
             this.lblEnterLocation = new System.Windows.Forms.Label();
             this.txtBxEnterBuilding = new System.Windows.Forms.TextBox();
             this.grpBoxDates = new System.Windows.Forms.GroupBox();
+            this.lblTimeInput = new System.Windows.Forms.Label();
+            this.txtBoxEnterTime = new System.Windows.Forms.TextBox();
             this.btnShowInvites = new System.Windows.Forms.Button();
             this.inviteSelector = new System.Windows.Forms.ComboBox();
             this.txtBxMeetingTopic = new System.Windows.Forms.TextBox();
@@ -71,8 +73,11 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.grpBoxInvites = new System.Windows.Forms.GroupBox();
             this.grpBoxMeetingDetails = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblShowTime = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
             this.lblInvitees = new System.Windows.Forms.Label();
             this.lblShowMeetDate = new System.Windows.Forms.Label();
             this.lblMeetDate = new System.Windows.Forms.Label();
@@ -82,10 +87,6 @@
             this.lblRequire = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtBoxEnterTime = new System.Windows.Forms.TextBox();
-            this.lblTimeInput = new System.Windows.Forms.Label();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.lblShowTime = new System.Windows.Forms.Label();
             this.grpBxLogin.SuspendLayout();
             this.accoutCreate.SuspendLayout();
             this.grpBoxDates.SuspendLayout();
@@ -123,7 +124,7 @@
             this.grpBxLogin.Controls.Add(this.PasswordInput);
             this.grpBxLogin.Controls.Add(this.button1);
             this.grpBxLogin.Controls.Add(this.UserNameInput);
-            this.grpBxLogin.Location = new System.Drawing.Point(24, 219);
+            this.grpBxLogin.Location = new System.Drawing.Point(38, 31);
             this.grpBxLogin.Margin = new System.Windows.Forms.Padding(6);
             this.grpBxLogin.Name = "grpBxLogin";
             this.grpBxLogin.Padding = new System.Windows.Forms.Padding(6);
@@ -177,7 +178,7 @@
             this.accoutCreate.Controls.Add(this.txtCreateAccess);
             this.accoutCreate.Controls.Add(this.txtCreatePass);
             this.accoutCreate.Controls.Add(this.txtCreateUser);
-            this.accoutCreate.Location = new System.Drawing.Point(24, 423);
+            this.accoutCreate.Location = new System.Drawing.Point(38, 245);
             this.accoutCreate.Margin = new System.Windows.Forms.Padding(6);
             this.accoutCreate.Name = "accoutCreate";
             this.accoutCreate.Padding = new System.Windows.Forms.Padding(6);
@@ -253,7 +254,7 @@
             // 
             // btnSetPrefferences
             // 
-            this.btnSetPrefferences.Location = new System.Drawing.Point(1622, 90);
+            this.btnSetPrefferences.Location = new System.Drawing.Point(1063, 232);
             this.btnSetPrefferences.Margin = new System.Windows.Forms.Padding(4);
             this.btnSetPrefferences.Name = "btnSetPrefferences";
             this.btnSetPrefferences.Size = new System.Drawing.Size(250, 69);
@@ -265,7 +266,7 @@
             // 
             // btnDateSubmission
             // 
-            this.btnDateSubmission.Location = new System.Drawing.Point(1622, 171);
+            this.btnDateSubmission.Location = new System.Drawing.Point(1063, 313);
             this.btnDateSubmission.Margin = new System.Windows.Forms.Padding(4);
             this.btnDateSubmission.Name = "btnDateSubmission";
             this.btnDateSubmission.Size = new System.Drawing.Size(194, 75);
@@ -314,7 +315,7 @@
             // chckBoxShowPeople
             // 
             this.chckBoxShowPeople.FormattingEnabled = true;
-            this.chckBoxShowPeople.Location = new System.Drawing.Point(70, 806);
+            this.chckBoxShowPeople.Location = new System.Drawing.Point(24, 838);
             this.chckBoxShowPeople.Margin = new System.Windows.Forms.Padding(6);
             this.chckBoxShowPeople.Name = "chckBoxShowPeople";
             this.chckBoxShowPeople.Size = new System.Drawing.Size(366, 228);
@@ -358,19 +359,37 @@
             this.grpBoxDates.Controls.Add(this.dateTimePicker2);
             this.grpBoxDates.Controls.Add(this.dateTimePicker3);
             this.grpBoxDates.Controls.Add(this.dateTimePicker4);
-            this.grpBoxDates.Location = new System.Drawing.Point(489, 780);
+            this.grpBoxDates.Location = new System.Drawing.Point(402, 812);
             this.grpBoxDates.Margin = new System.Windows.Forms.Padding(6);
             this.grpBoxDates.Name = "grpBoxDates";
             this.grpBoxDates.Padding = new System.Windows.Forms.Padding(6);
-            this.grpBoxDates.Size = new System.Drawing.Size(583, 254);
+            this.grpBoxDates.Size = new System.Drawing.Size(609, 254);
             this.grpBoxDates.TabIndex = 20;
             this.grpBoxDates.TabStop = false;
             this.grpBoxDates.Text = "Select Your Dates";
             this.grpBoxDates.Visible = false;
             // 
+            // lblTimeInput
+            // 
+            this.lblTimeInput.AutoSize = true;
+            this.lblTimeInput.Location = new System.Drawing.Point(297, 30);
+            this.lblTimeInput.Name = "lblTimeInput";
+            this.lblTimeInput.Size = new System.Drawing.Size(305, 25);
+            this.lblTimeInput.TabIndex = 16;
+            this.lblTimeInput.Text = "Enter Time in this format 24:00";
+            this.lblTimeInput.Visible = false;
+            // 
+            // txtBoxEnterTime
+            // 
+            this.txtBoxEnterTime.Location = new System.Drawing.Point(365, 63);
+            this.txtBoxEnterTime.Name = "txtBoxEnterTime";
+            this.txtBoxEnterTime.Size = new System.Drawing.Size(100, 31);
+            this.txtBoxEnterTime.TabIndex = 15;
+            this.txtBoxEnterTime.Visible = false;
+            // 
             // btnShowInvites
             // 
-            this.btnShowInvites.Location = new System.Drawing.Point(1622, 279);
+            this.btnShowInvites.Location = new System.Drawing.Point(1063, 421);
             this.btnShowInvites.Margin = new System.Windows.Forms.Padding(6);
             this.btnShowInvites.Name = "btnShowInvites";
             this.btnShowInvites.Size = new System.Drawing.Size(194, 62);
@@ -489,7 +508,7 @@
             // 
             // showMeetings
             // 
-            this.showMeetings.Location = new System.Drawing.Point(1622, 387);
+            this.showMeetings.Location = new System.Drawing.Point(1063, 501);
             this.showMeetings.Name = "showMeetings";
             this.showMeetings.Size = new System.Drawing.Size(194, 59);
             this.showMeetings.TabIndex = 32;
@@ -521,7 +540,7 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(1600, 460);
+            this.btnLogout.Location = new System.Drawing.Point(1041, 602);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(235, 74);
             this.btnLogout.TabIndex = 35;
@@ -536,7 +555,7 @@
             this.grpBoxInvites.Controls.Add(this.showDates);
             this.grpBoxInvites.Controls.Add(this.acceptInvite);
             this.grpBoxInvites.Controls.Add(this.DenyInvite);
-            this.grpBoxInvites.Location = new System.Drawing.Point(536, 261);
+            this.grpBoxInvites.Location = new System.Drawing.Point(515, 155);
             this.grpBoxInvites.Name = "grpBoxInvites";
             this.grpBoxInvites.Size = new System.Drawing.Size(459, 159);
             this.grpBoxInvites.TabIndex = 36;
@@ -555,7 +574,7 @@
             this.grpBoxMeetingDetails.Controls.Add(this.buildingName);
             this.grpBoxMeetingDetails.Controls.Add(this.lblEnterLocation);
             this.grpBoxMeetingDetails.Controls.Add(this.txtBxEnterRoom);
-            this.grpBoxMeetingDetails.Location = new System.Drawing.Point(485, 479);
+            this.grpBoxMeetingDetails.Location = new System.Drawing.Point(38, 521);
             this.grpBoxMeetingDetails.Name = "grpBoxMeetingDetails";
             this.grpBoxMeetingDetails.Size = new System.Drawing.Size(498, 270);
             this.grpBoxMeetingDetails.TabIndex = 37;
@@ -563,18 +582,10 @@
             this.grpBoxMeetingDetails.Text = "Meeting Details";
             this.grpBoxMeetingDetails.Visible = false;
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(1622, 344);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(176, 37);
-            this.button3.TabIndex = 38;
-            this.button3.Text = "Save data to file";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.lblShowTime);
             this.groupBox1.Controls.Add(this.lblTime);
             this.groupBox1.Controls.Add(this.lblInvitees);
@@ -586,13 +597,52 @@
             this.groupBox1.Controls.Add(this.lblRequire);
             this.groupBox1.Controls.Add(this.showAccepted);
             this.groupBox1.Controls.Add(this.showAttendees);
-            this.groupBox1.Location = new System.Drawing.Point(1081, 580);
+            this.groupBox1.Location = new System.Drawing.Point(524, 331);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(469, 454);
             this.groupBox1.TabIndex = 39;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Show Meeting Data";
             this.groupBox1.Visible = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(145, 397);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(70, 25);
+            this.label9.TabIndex = 43;
+            this.label9.Text = "label9";
+            this.label9.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(24, 397);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(216, 50);
+            this.label8.TabIndex = 42;
+            this.label8.Text = "Accepted:";
+            this.label8.Visible = false;
+            // 
+            // lblShowTime
+            // 
+            this.lblShowTime.AutoSize = true;
+            this.lblShowTime.Location = new System.Drawing.Point(193, 303);
+            this.lblShowTime.Name = "lblShowTime";
+            this.lblShowTime.Size = new System.Drawing.Size(0, 25);
+            this.lblShowTime.TabIndex = 41;
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Location = new System.Drawing.Point(17, 303);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(65, 25);
+            this.lblTime.TabIndex = 40;
+            this.lblTime.Text = "Time:";
+            this.lblTime.Visible = false;
+            this.lblTime.Click += new System.EventHandler(this.lblTime_Click);
             // 
             // lblInvitees
             // 
@@ -677,51 +727,14 @@
             this.label7.Text = "Current User:";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // txtBoxEnterTime
-            // 
-            this.txtBoxEnterTime.Location = new System.Drawing.Point(365, 63);
-            this.txtBoxEnterTime.Name = "txtBoxEnterTime";
-            this.txtBoxEnterTime.Size = new System.Drawing.Size(100, 31);
-            this.txtBoxEnterTime.TabIndex = 15;
-            this.txtBoxEnterTime.Visible = false;
-            // 
-            // lblTimeInput
-            // 
-            this.lblTimeInput.AutoSize = true;
-            this.lblTimeInput.Location = new System.Drawing.Point(260, 26);
-            this.lblTimeInput.Name = "lblTimeInput";
-            this.lblTimeInput.Size = new System.Drawing.Size(305, 25);
-            this.lblTimeInput.TabIndex = 16;
-            this.lblTimeInput.Text = "Enter Time in this format 24:30";
-            this.lblTimeInput.Visible = false;
-            // 
-            // lblTime
-            // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Location = new System.Drawing.Point(24, 303);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(65, 25);
-            this.lblTime.TabIndex = 40;
-            this.lblTime.Text = "Time:";
-            this.lblTime.Visible = false;
-            // 
-            // lblShowTime
-            // 
-            this.lblShowTime.AutoSize = true;
-            this.lblShowTime.Location = new System.Drawing.Point(193, 303);
-            this.lblShowTime.Name = "lblShowTime";
-            this.lblShowTime.Size = new System.Drawing.Size(0, 25);
-            this.lblShowTime.TabIndex = 41;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2152, 1081);
+            this.ClientSize = new System.Drawing.Size(1364, 1081);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.grpBoxMeetingDetails);
             this.Controls.Add(this.grpBoxInvites);
             this.Controls.Add(this.btnLogout);
@@ -799,7 +812,6 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.GroupBox grpBoxInvites;
         private System.Windows.Forms.GroupBox grpBoxMeetingDetails;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblRequire;
         private System.Windows.Forms.Label lblLocation;
@@ -814,6 +826,8 @@
         private System.Windows.Forms.TextBox txtBoxEnterTime;
         private System.Windows.Forms.Label lblShowTime;
         private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
     }
 }
 
